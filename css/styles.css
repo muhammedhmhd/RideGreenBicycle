@@ -1,0 +1,271 @@
+/* Welcome Section */
+#welcome {
+  background: url('../images/welcome-bg.jpg') no-repeat center center/cover;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Push content to the bottom */
+  align-items: center; /* Center horizontally */
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ensure text is readable */
+  padding-bottom: 50px; /* Space from the bottom */
+}
+
+#welcome h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+#welcome p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Fallback for browsers that don't support backdrop-filter */
+.navbar {
+  background-color: rgba(255, 255, 255, 0.7); /* Fallback semi-transparent background */
+}
+
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  
+}
+
+h1, h2, h3 {
+  font-weight: bold;
+}
+
+/* Blurred Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure the navbar stays on top */
+  backdrop-filter: blur(10px); /* Apply blur effect */
+  background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  padding: 1rem 0;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: white !important; /* White text for contrast */
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* White toggler icon */
+}
+
+/* Sticky Navbar (on scroll) */
+.navbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.6) !important; /* Semi-transparent black */
+}
+
+/* Blur Effect */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(0px); /* Initial blur is off */
+  z-index: 999; /* Just below the navbar */
+  pointer-events: none; /* Allow clicks to pass through */
+  transition: backdrop-filter 0.3s ease;
+}
+
+
+/* About Us Section */
+#about {
+  background-color: #f9f9f9;
+  padding: 40px 20px;
+}
+
+/* Product Showcase Section */
+#products .row {
+  margin-top: 20px;
+}
+
+#products img {
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+#products img:hover {
+  transform: scale(1.1);
+}
+
+/* Testimonials Section */
+#testimonials blockquote {
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
+#testimonials cite {
+  display: block;
+  margin-top: 10px;
+  font-size: 1rem;
+  font-style: normal;
+}
+
+/* Frosted Glass Effect for Call-to-Action Section */
+#cta {
+  position: relative;
+  overflow: hidden; /* Ensure the blur effect doesn't spill out */
+  z-index: 1; /* Ensure the section stays above other elements */
+}
+
+#cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(30, 144, 255, 0.3); /* Semi-transparent blue */
+  backdrop-filter: blur(10px); /* Apply blur effect */
+  z-index: -1; /* Place behind the content */
+}
+
+#cta h2,
+#cta p {
+  color: white; /* White text for contrast */
+  position: relative; /* Ensure text stays above the pseudo-element */
+}
+
+#cta .btn-light {
+  background-color: white; /* White button */
+  color: #0d6efd; /* Blue text for the button */
+  font-weight: bold;
+}
+
+/* Contact Form */
+#contact form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.container {
+  padding: 20px;
+}
+
+/* Footer */
+footer {
+  margin-top: 40px;
+}
+
+/* Testimonial Section */
+#testimonials .img-fluid {
+  border-radius: 50%;
+}
+
+
+/* Media Queries */
+@media (min-width: 576px) {
+  .navbar-expand-lg .navbar-nav .nav-link {
+      padding: 15px 20px;
+  }
+}
+
+.product-box {
+  background-color: #eafaf1;
+  border: 2px solid #28a745;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.05);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+/* Apply pulse animation to the testimonial cards on hover */
+.testimonial-card:hover {
+  animation: pulse 1s ease-in-out infinite;
+}
+
+.pop-button {
+  transition: transform 0.2s ease-in-out;
+}
+
+.pop-button:hover,
+.pop-button:focus {
+  transform: scale(1.1);
+}
+
+.pop-button:active {
+  transform: scale(0.95);
+}
+
+.feature-card {
+        background-color: #eafaf1; /* Same greenish background for all */
+        border: 2px solid #28a745;
+        border-radius: 20px;
+        padding: 20px;
+        transition: transform 0.2s ease-in-out;
+        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+    }
+
+    .feature-card i {
+        color: #28a745;
+    }
+
+    /* Stomp Animation on Hover */
+    .feature-card:hover {
+        transform: scale(1.1);
+    }    
+        /* Wipe Animation */
+        @keyframes wipeAnimation {
+            0% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    
+        .wipe-animation {
+            animation: wipeAnimation 1s ease-out forwards;
+        }
+    
+        .wipe-animation:nth-child(odd) {
+            animation-delay: 0.3s;
+        }
+    
+        .wipe-animation:nth-child(even) {
+            animation-delay: 0.6s;
+        }
+
+        .pop-animation {
+                background-color: #eafaf1;
+                border: 2px solid #28a745;
+                border-radius: 20px;
+                padding: 20px;
+                transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+                cursor: pointer;
+                box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+            }
+        
+            .pop-animation:hover {
+                transform: scale(1.05);
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            }
+
+      
+
